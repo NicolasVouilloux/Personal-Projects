@@ -15,15 +15,31 @@ function listLength(){
 
 function createListElement() {
 	if (isNotEmplty()){
+		let isMarked = false;
 		let li = document.createElement("li");
 		let txt = document.createTextNode(input.value);
-		let btn = document.querySelector('button');
+		let btnX = document.createElement('button');
+		btnX.innerText = "X";
 		li.appendChild(txt);
-		//li.appendChild(btn);
+		li.appendChild(btnX);
 		ul.appendChild(li);
 		input.value="";
+		function deleteItem(){
+			li.parentNode.removeChild(li);
+		}
+		function mark(){
+			if (isMarked == false){
+				li.style.backgroundColor = "#51DF70";
+				isMarked = true;
+			}
+			else {
+				li.style.backgroundColor = "#4EB9CD";
+				isMarked = false;
+			}
+		}
+		btnX.addEventListener("click",deleteItem);
+		li.addEventListener("click",mark);
 	}
-	
 }
 
 function addListAfterClick(){
