@@ -1,10 +1,10 @@
-var enterButton = document.getElementById("enter");
-var input = document.getElementById("userInput");
-var ul = document.querySelector("ul");
-var item = document.getElementsByTagName("li");
+let enterButton = document.getElementById("enter");
+let input = document.getElementById("userInput");
+let ul = document.querySelector("ul");
+let item = document.getElementsByTagName("li");
 
-function inputLength(){
-	return input.value.length;
+function isEmplty(){
+	//if (input.value == "" )
 } 
 
 function listLength(){
@@ -13,28 +13,24 @@ function listLength(){
 
 function createListElement() {
 	//START STRIKETHROUGH
-	// because it's in the function, it only adds it for new items
-	function crossOut() {
-	}
-	//END STRIKETHROUGH
+	let li = document.createElement("li");
+	let txt = document.createTextNode(input.value);
+	li.appendChild(txt);  
+	ul.appendChild(li);
+	input.value="";
 
-	// START ADD DELETE BUTTON
-
-	// END ADD DELETE BUTTON
-
-	//ADD CLASS DELETE (DISPLAY: NONE)
-	function deleteListItem(){
-	}
-	//END ADD CLASS DELETE
+	
 }
 
 
 function addListAfterClick(){
+	createListElement();
 }
 
 function addListAfterKeypress(event) {
+	if (event.code=="Enter")
+		createListElement();
 }
 
-
-enterButton.addEventListener();
-input.addEventListener();
+enterButton.addEventListener("click",addListAfterClick);
+input.addEventListener("keydown",addListAfterKeypress);
