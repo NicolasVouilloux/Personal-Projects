@@ -3,8 +3,10 @@ let input = document.getElementById("userInput");
 let ul = document.querySelector("ul");
 let item = document.getElementsByTagName("li");
 
-function isEmplty(){
-	//if (input.value == "" )
+function isNotEmplty(){
+	if (input.value == "" )
+		return false;
+	 return true;
 } 
 
 function listLength(){
@@ -12,16 +14,17 @@ function listLength(){
 }
 
 function createListElement() {
-	//START STRIKETHROUGH
-	let li = document.createElement("li");
-	let txt = document.createTextNode(input.value);
-	li.appendChild(txt);  
-	ul.appendChild(li);
-	input.value="";
-
+	if (isNotEmplty()){
+		let li = document.createElement("li");
+		let txt = document.createTextNode(input.value);
+		let btn = document.querySelector('button');
+		li.appendChild(txt);
+		//li.appendChild(btn);
+		ul.appendChild(li);
+		input.value="";
+	}
 	
 }
-
 
 function addListAfterClick(){
 	createListElement();
