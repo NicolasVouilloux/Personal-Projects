@@ -19,7 +19,11 @@
 .list{
 	padding: 1%;
 }
-
+#ColorSelect{
+	border: 2px solid #5a5a5a;
+	border-radius: 5px;
+	background: #c0c0c0;
+}
 
 
 #ColorChange{
@@ -31,6 +35,5 @@
 	font-weight: normal;
 }
 #ColorChange:hover{
-	background-color: #02798F;
 	color: #FFCD5D;
 }

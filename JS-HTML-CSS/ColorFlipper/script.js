@@ -1,8 +1,8 @@
-let colorArray = ['Black', 'Red', 'Yellow', 'Orange'];
+let colorArray = ['Select a Color','Brown','Black', 'Red', 'Yellow', 'Orange'];
 
 
 function fill(array) {
-    let selectElement = document.getElementById('color-select');
+    let selectElement = document.getElementById('ColorSelect');
     array.forEach(item => {
         let option = document.createElement('option');
         option.value = item;
@@ -12,3 +12,7 @@ function fill(array) {
 }
 
 fill(colorArray);
+
+function changeBackground(){
+    let selectedElement
+}
