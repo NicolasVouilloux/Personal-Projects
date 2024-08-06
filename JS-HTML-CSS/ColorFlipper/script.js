@@ -14,5 +14,11 @@ function fill(array) {
 fill(colorArray);
 
 function changeBackground(){
-    let selectedElement
+    let e = document.getElementById("ColorSelect");
+    let value = e.options[e.selectedIndex].value;
+    colorArray.forEach(item => {
+        if (value == 'Select a Color')
+            return false;
+        //else document.style.backgroundcolor = Brown;
+    })
 }
