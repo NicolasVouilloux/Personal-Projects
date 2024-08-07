@@ -1,7 +1,24 @@
-let bombBTN = document.getElementById("BombButton");
-let sizeBTN = document.getElementById("SizeButton");
+let newGameBTN = document.getElementById("NewGameButton");
+let nbSize = document.getElementById("MineSweeperSize");
+let body = document.body;
 
-function modifieSize(){
-    let nbSize = document.getElementById("MineSweeperSize").value;
+function setSize(){
+    let tbl = document.createElement("table");
+    for (let i=0;i<nbSize.value;i++){
+        let tr = document.createElement("tr");
+        tbl.appendChild(tr);
+        for(let j=0; j<nbSize.value;j++){
+            let td = document.createElement("td");
+            tr.appendChild(td);
+        }
+    }
+    body.appendChild(tbl);
 }
-bombBTN.addEventListener("click",modifieSize);
+
+
+
+function newGame(){
+    setSize();
+}
+
+newGameBTN.addEventListener("click",newGame);
