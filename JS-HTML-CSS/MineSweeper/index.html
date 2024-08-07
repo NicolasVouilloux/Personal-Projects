@@ -6,14 +6,20 @@
         <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
-        <div id="Title">
-            <h1>Welcome on my JS MineSweeper</h1>
+        <div class="Title">
+            <h1 id="MSTitle">JS MineSweeper</h1>
         </div>
-        <div id="value">
-            <p id="SizeText">Write the size with just a number(number of box lentgh/Width)</p>
-            <input id="MineSweeperSize" type="text" placeholder="Size..." >
-            <p id="BombText">Write the number of bomb you want</p>
-            <input id="NumberOfBomb" type="text" placeholder="Bomb..." >
+        <div class="value">
+            <div class="BoxDiv">
+                <p id="SizeText">Write the size with just a number(number of box lentgh/Width)</p>
+                <input id="MineSweeperSize" type="text" placeholder="Size..." >
+                <button id="SizeButton">↳</button>
+            </div>
+            <div class="BombDiv">
+                <p id="BombText">Write the number of bomb you want</p>
+                <input id="NumberOfBomb" type="text" placeholder="Bomb..." >
+                <button id="BombButton">↳</button>
+            </div>
         </div>
         <table>
             <tbody>
