@@ -1,5 +1,5 @@
 let colorArray = ['Select a Color','Brown','Black', 'Red', 'Yellow', 'Orange'];
-
+let btn = document.getElementById('ColorChange');
 
 function fill(array) {
     let selectElement = document.getElementById('ColorSelect');
@@ -15,10 +15,12 @@ fill(colorArray);
 
 function changeBackground(){
     let e = document.getElementById("ColorSelect");
-    let value = e.options[e.selectedIndex].value;
     colorArray.forEach(item => {
-        if (value == 'Select a Color')
-            return false;
-        //else document.style.backgroundcolor = Brown;
+        if (e.value == 'Select a Color'){
+            return false;}
+        else document.getElementById('body').style.backgroundColor=e.value;
     })
 }
+
+
+btn.addEventListener('click',changeBackground);
