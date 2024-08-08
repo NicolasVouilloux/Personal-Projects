@@ -2,6 +2,14 @@ let newGameBTN = document.getElementById("NewGameButton");
 let nbSize = document.getElementById("MineSweeperSize");
 let nbBomb = document.getElementById("MineSweeperBomb");
 let body = document.body;
+let matrixColumn = [];
+
+function createMatrix(){
+    for (let i=0; i<nbSize.value;i++){
+        let matrixRow = [];
+        ma
+    }
+}
 
 function setSize(){
     let tbl = document.createElement("table");
@@ -11,7 +19,8 @@ function setSize(){
         for(let j=0; j<nbSize.value;j++){
             let td = document.createElement("td");
             let btn = document.createElement("button");
-            btn.innerText = "    ";
+            btn.innerText = "";
+            btn.classList.add("BtnBox");
             td.appendChild(btn);
             tr.appendChild(td);
         }
@@ -33,3 +42,4 @@ function newGame(){
 }
 
 newGameBTN.addEventListener("click",newGame);
+
