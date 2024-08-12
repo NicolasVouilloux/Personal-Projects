@@ -6,13 +6,19 @@ containerList.forEach(element => {
     initialyze(element);
 });
 
+function resetSelected(){
+    containerList.forEach(element => {
+        if(element != selectedContainer)
+            container.style.animation = "";
+    });
+}
+
 function initialyze(nbContainer){
     let container = document.getElementById(nbContainer);
-    let isSelected = false;
     function changeSelection(){
-        isSelected = true;
         container.style.animation = "smoothColorChange 1s forwards";
         selectedContainer = nbContainer;
+        resetSelected();
     }
     container.addEventListener('click',changeSelection);
 }
