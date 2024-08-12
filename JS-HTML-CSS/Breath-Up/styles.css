@@ -1,0 +1,30 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+body{
+    background-color: rgb(23, 23, 75);
+    font-family: "Comfortaa";
+}
+.selection{
+    color: rgb(15, 214, 214);
+    text-shadow: 1px 1px 3px rgb(19, 131, 131);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+div{
+    flex-direction: row;
+}
+.text-slide{
+    margin-right: 20px;
+    padding: 10px;
+    background-color:rgb(3, 30, 88) ;
+    border-radius: 10px;
+}
+@keyframes smoothColorChange {
+    from {
+        background-color: rgb(3, 30, 88);
+    }
+    to {
+        background-color: blueviolet;
+    }
+}
