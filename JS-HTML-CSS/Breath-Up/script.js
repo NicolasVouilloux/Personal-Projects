@@ -5,19 +5,22 @@ let btnStart = document.getElementById("startButton");
 let circle = document.getElementById("circle")
 
 /* Text for the Rythm */
-let startingtext = `Inhale 3s
+let startingText = `Inhale 3s
 Exhale 5s`;
-let Cardiactext = `Inhale 5s
+let cardiacText = `Inhale 5s
 Exhale 5s`;
-let Calmtext = `Inhale 4s
+let calmText = `Inhale 4s
 Exhale 8s`;
-let Reinforcetext = `Inhale 6s
+let reinforceText = `Inhale 6s
 Exhale 6s
 Focus 10s`;
-let Customtext = `Inhale 5s
+let customText = `Inhale 5s
 Exhale 5s`;
 
-let inhale = "10s"
+let inhaleSec = 3;
+let exhaleSec = 5;
+let pauseSec = 0;
+let durationMin = 5;
     
 containerList.forEach(element => {
     initialyze(element);
@@ -43,19 +46,58 @@ function initialyze(nbContainer){
     container.addEventListener('click',changeSelection);
 }
 function changeText(){
-    if(selectedContainer == 1)
-        text.textContent = startingtext;
-    else if(selectedContainer == 2)
-        text.textContent = Cardiactext;
-    else if(selectedContainer == 3)
-        text.textContent = Calmtext;
-    else if(selectedContainer == 4)
-        text.textContent = Reinforcetext;
-    else 
-        text.textContent = Customtext;
-}
-function startAnimation(){
-    circle.style.animation = "circleInhale 2s infinite,"
+    if(selectedContainer == 1){
+        text.textContent = startingText;
+        inhaleSec = 3;
+        exhaleSec = 5;
+    }
+    else if(selectedContainer == 2){
+        text.textContent = cardiacText;
+        inhaleSec = 5;
+        exhaleSec = 5;
+    }
+    else if(selectedContainer == 3){
+        text.textContent = calmText;
+        inhaleSec = 4;
+        exhaleSec = 8;
+    }
+    else if(selectedContainer == 4){
+        text.textContent = reinforceText;
+        inhaleSec = 6;
+        exhaleSec = 6;
+        pauseSec = 10;
+    }
+    else {
+        text.textContent = customText;
+        inhaleSec = 5;
+        exhaleSec = 5;
+    }
 }
 
-btnStart.addEventListener("click",startAnimation)
+function startCycle(){    
+    let iteration = 0;
+    let numberOfIteration = ((5*60)/inhaleSec+exhaleSec);
+    startInhaleAnimation();
+    circle.addEventListener('animationend',(event)=>{
+        if (iteration < numberOfIteration){
+            let animationName = event.animationName;
+            if (animationName == 'circleInhale'){   
+                startExhaleAnimation();
+                iteration++
+            }
+            else if (animationName == 'circleExhale'){
+                startInhaleAnimation();
+            }
+        }
+    })
+}
+
+function startInhaleAnimation(){
+    circle.style.animation="none";
+    circle.style.animation=`circleInhale ${inhaleSec}s forwards`;
+}
+function startExhaleAnimation(){
+    circle.style.animation="none";
+    circle.style.animation=`circleExhale ${exhaleSec}s forwards`;
+}
+btnStart.addEventListener("click",startCycle);
