@@ -11,9 +11,15 @@ body{
     flex-direction: column;
     text-align: center;
 }
-div{
+
+div {
+    display: flex;
     flex-direction: row;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 10px;
 }
+
 .text-slide{
     margin-right: 20px;
     padding: 10px;
@@ -33,20 +39,49 @@ div{
         background-color: rgb(62, 16, 189);
     }
 }
-@keyframes buttonclick{
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(0.5);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
+
 #catInformation{
     padding-top: 10px;
 }
 #secondTitle{
     padding-bottom: 10px;
+}
+#startButton {
+    height: 30px;
+    width: 70px;
+    text-align: center;
+    margin: 20px auto;
+    display: block;
+}
+#outerCircle{
+    border-radius: 100px;
+    width: 200px;
+    height: 200px;
+    background-color: rgb(17, 40, 100);
+    margin: 0 auto;
+    margin-top: 20px;
+}
+#circle {
+    border-radius: 100px;
+    width: 200px;
+    height: 200px;
+    background-color: rgb(27, 59, 148);
+    margin: 0 auto;
+    transform: scale(0);
+}
+@keyframes circleInhale {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+@keyframes circleExhale {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0);
+    }
 }

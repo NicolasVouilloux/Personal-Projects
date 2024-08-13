@@ -1,6 +1,10 @@
 let text = document.getElementById("catInformation");
 let containerList = [1,2,3,4,5];
 let selectedContainer = 1;
+let btnStart = document.getElementById("startButton");
+let circle = document.getElementById("circle")
+
+/* Text for the Rythm */
 let startingtext = `Inhale 3s
 Exhale 5s`;
 let Cardiactext = `Inhale 5s
@@ -13,7 +17,7 @@ Focus 10s`;
 let Customtext = `Inhale 5s
 Exhale 5s`;
 
-
+let inhale = "10s"
     
 containerList.forEach(element => {
     initialyze(element);
@@ -31,7 +35,7 @@ function resetSelected(){
 function initialyze(nbContainer){
     let container = document.getElementById(nbContainer);
     function changeSelection(){
-        container.style.animation = "smoothColorChange 1s forwards,buttonclick 0.2s ease forwards";
+        container.style.animation = "smoothColorChange 1s forwards";
         selectedContainer = nbContainer;
         resetSelected();
         changeText();
@@ -50,3 +54,8 @@ function changeText(){
     else 
         text.textContent = Customtext;
 }
+function startAnimation(){
+    circle.style.animation = "circleInhale 2s infinite,"
+}
+
+btnStart.addEventListener("click",startAnimation)
