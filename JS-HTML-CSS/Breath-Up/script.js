@@ -1,26 +1,35 @@
 let text = document.getElementById("catInformation");
-let containerList = [1,2,3,4,5];
-let selectedContainer = 1;
+let selectedContainer = starting;
 let btnStart = document.getElementById("startButton");
 let circle = document.getElementById("circle")
-
-/* Text for the Rythm */
-let startingText = `Inhale 3s
-Exhale 5s`;
-let cardiacText = `Inhale 5s
-Exhale 5s`;
-let calmText = `Inhale 4s
-Exhale 8s`;
-let reinforceText = `Inhale 6s
-Exhale 6s
-Focus 10s`;
-let customText = `Inhale 5s
-Exhale 5s`;
-
-let inhaleSec = 3;
-let exhaleSec = 5;
-let pauseSec = 0;
-let durationMin = 5;
+const exercices={
+    starting :{
+        inhaleSec :3,
+        exhaleSec :5,
+        wait:0,
+    },
+    cardiac :{
+        inhaleSec :5,
+        exhaleSec :5,
+        wait:0,
+    },
+    calm :{
+        inhaleSec :5,
+        exhaleSec :5,
+        wait:0,
+    },
+    reinforce :{
+        inhaleSec :4,
+        exhaleSec :8,
+        wait:10,
+    },
+    custom :{
+        inhaleSec :5,
+        exhaleSec :5,
+        wait:0,
+    },
+}
+let containerList = Object.keys(exercices)
     
 containerList.forEach(element => {
     initialyze(element);
@@ -35,69 +44,55 @@ function resetSelected(){
     });
 }
 
-function initialyze(nbContainer){
-    let container = document.getElementById(nbContainer);
+function initialyze(exerciceName){
+    let container = document.getElementById(exerciceName);
     function changeSelection(){
         container.style.animation = "smoothColorChange 1s forwards";
-        selectedContainer = nbContainer;
+        selectedContainer = exerciceName;
         resetSelected();
         changeText();
     }
     container.addEventListener('click',changeSelection);
 }
+
 function changeText(){
-    if(selectedContainer == 1){
-        text.textContent = startingText;
-        inhaleSec = 3;
-        exhaleSec = 5;
-    }
-    else if(selectedContainer == 2){
-        text.textContent = cardiacText;
-        inhaleSec = 5;
-        exhaleSec = 5;
-    }
-    else if(selectedContainer == 3){
-        text.textContent = calmText;
-        inhaleSec = 4;
-        exhaleSec = 8;
-    }
-    else if(selectedContainer == 4){
-        text.textContent = reinforceText;
-        inhaleSec = 6;
-        exhaleSec = 6;
-        pauseSec = 10;
-    }
-    else {
-        text.textContent = customText;
-        inhaleSec = 5;
-        exhaleSec = 5;
-    }
+    let selectedExercice = exercices[selectedContainer]
+    const {inhaleSec, exhaleSec,wait}= selectedExercice
+    let desc = `inhale ${inhaleSec}s
+    exhale ${exhaleSec}s`
+    if (wait != 0)
+        desc += `
+    pause ${wait}s`
+    text.textContent= desc
 }
 
-function startCycle(){    
+function startCycle(){
+    let selectedExercice = exercices[selectedContainer]
+    const {inhaleSec, exhaleSec,wait}= selectedExercice 
     let iteration = 0;
     let numberOfIteration = ((5*60)/inhaleSec+exhaleSec);
-    startInhaleAnimation();
+    startInhaleAnimation(inhaleSec);
     circle.addEventListener('animationend',(event)=>{
         if (iteration < numberOfIteration){
             let animationName = event.animationName;
             if (animationName == 'circleInhale'){   
-                startExhaleAnimation();
+                startExhaleAnimation(exhaleSec);
                 iteration++
             }
             else if (animationName == 'circleExhale'){
-                startInhaleAnimation();
+                startInhaleAnimation(inhaleSec);
             }
         }
     })
 }
 
-function startInhaleAnimation(){
+function startInhaleAnimation(inSec){
     circle.style.animation="none";
-    circle.style.animation=`circleInhale ${inhaleSec}s forwards`;
+    circle.style.animation=`circleInhale ${inSec}s forwards`;
 }
-function startExhaleAnimation(){
+function startExhaleAnimation(exSec){
     circle.style.animation="none";
-    circle.style.animation=`circleExhale ${exhaleSec}s forwards`;
+    circle.style.animation=`circleExhale ${exSec}s forwards`;
 }
 btnStart.addEventListener("click",startCycle);
+
