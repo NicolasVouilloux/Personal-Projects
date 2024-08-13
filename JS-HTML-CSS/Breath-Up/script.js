@@ -1,6 +1,6 @@
 let text = document.getElementById("catInformation");
 let containerList = [1,2,3,4,5];
-let selectedContainer = 0;
+let selectedContainer = 1;
 let startingtext = `Inhale 3s
 Exhale 5s`;
 let Cardiactext = `Inhale 5s
@@ -14,6 +14,7 @@ let Customtext = `Inhale 5s
 Exhale 5s`;
 
 
+    
 containerList.forEach(element => {
     initialyze(element);
 });
