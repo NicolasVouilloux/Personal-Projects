@@ -19,12 +19,34 @@ div{
     padding: 10px;
     background-color:rgb(3, 30, 88) ;
     border-radius: 10px;
+    border: 1px solid transparent;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+.text-slide:hover{
+    border: 1px solid yellow;
 }
 @keyframes smoothColorChange {
     from {
         background-color: rgb(3, 30, 88);
     }
     to {
-        background-color: blueviolet;
+        background-color: rgb(62, 16, 189);
     }
+}
+@keyframes buttonclick{
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+#catInformation{
+    padding-top: 10px;
+}
+#secondTitle{
+    padding-bottom: 10px;
 }
