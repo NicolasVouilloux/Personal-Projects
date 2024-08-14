@@ -70,9 +70,11 @@ function startCycle(){
     let selectedExercice = exercices[selectedContainer]
     const {inhaleSec, exhaleSec,wait}= selectedExercice 
     let iteration = 0;
-    let numberOfIteration = ((5*60)/inhaleSec+exhaleSec);
+    let numberOfIteration = ((5*60)/(inhaleSec+exhaleSec));
     startInhaleAnimation(inhaleSec);
+    console.log(numberOfIteration)
     circle.addEventListener('animationend',(event)=>{
+        console.log(iteration)
         if (iteration < numberOfIteration){
             let animationName = event.animationName;
             if (animationName == 'circleInhale'){   
