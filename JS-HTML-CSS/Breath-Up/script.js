@@ -69,24 +69,26 @@ function changeText(){
 }
 
 function startCycle(){
-    let selectedExercice = exercices[selectedContainer]
-    const {inhaleSec, exhaleSec,wait}= selectedExercice 
-    let iteration = 0;
-    let numberOfIteration = ((5*60)/(inhaleSec+exhaleSec));
-    startInhaleAnimation(inhaleSec);
-    circle.addEventListener('animationend',(event)=>{
-        if (iteration < numberOfIteration){
-            let animationName = event.animationName;
-            if (animationName == 'circleInhale'){   
-                startExhaleAnimation(exhaleSec);
-                iteration++
-                updateTracker(iteration,numberOfIteration)
+    if (text.textContent != ""){
+        let selectedExercice = exercices[selectedContainer]
+        const {inhaleSec, exhaleSec,wait}= selectedExercice 
+        let iteration = 0;
+        let numberOfIteration = ((5*60)/(inhaleSec+exhaleSec));
+        startInhaleAnimation(inhaleSec);
+        circle.addEventListener('animationend',(event)=>{
+            if (iteration < numberOfIteration){
+                let animationName = event.animationName;
+                if (animationName == 'circleInhale'){   
+                    startExhaleAnimation(exhaleSec);
+                    iteration++
+                    updateTracker(iteration,numberOfIteration)
+                }
+                else if (animationName == 'circleExhale'){
+                    startInhaleAnimation(inhaleSec);
+                }
             }
-            else if (animationName == 'circleExhale'){
-                startInhaleAnimation(inhaleSec);
-            }
-        }
-    })
+        })
+    }
 }
 
 function startInhaleAnimation(inSec){
