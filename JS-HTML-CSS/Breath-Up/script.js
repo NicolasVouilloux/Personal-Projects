@@ -2,6 +2,8 @@ let text = document.getElementById("catInformation");
 let selectedContainer = starting;
 let btnStart = document.getElementById("startButton");
 let circle = document.getElementById("circle")
+let progress = document.querySelector(".tracker");
+
 const exercices={
     starting :{
         inhaleSec :3,
@@ -14,13 +16,13 @@ const exercices={
         wait:0,
     },
     calm :{
-        inhaleSec :5,
-        exhaleSec :5,
+        inhaleSec :4,
+        exhaleSec :8,
         wait:0,
     },
     reinforce :{
-        inhaleSec :4,
-        exhaleSec :8,
+        inhaleSec :6,
+        exhaleSec :6,
         wait:10,
     },
     custom :{
@@ -72,14 +74,13 @@ function startCycle(){
     let iteration = 0;
     let numberOfIteration = ((5*60)/(inhaleSec+exhaleSec));
     startInhaleAnimation(inhaleSec);
-    console.log(numberOfIteration)
     circle.addEventListener('animationend',(event)=>{
-        console.log(iteration)
         if (iteration < numberOfIteration){
             let animationName = event.animationName;
             if (animationName == 'circleInhale'){   
                 startExhaleAnimation(exhaleSec);
                 iteration++
+                updateTracker(iteration,numberOfIteration)
             }
             else if (animationName == 'circleExhale'){
                 startInhaleAnimation(inhaleSec);
@@ -98,3 +99,7 @@ function startExhaleAnimation(exSec){
 }
 btnStart.addEventListener("click",startCycle);
 
+function updateTracker(iteration,numberOfIteration){
+    let width = (iteration/numberOfIteration)*100
+    progress.style.setProperty("--progress", `${width}%`)
+}

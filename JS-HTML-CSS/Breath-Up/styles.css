@@ -85,3 +85,27 @@ div {
         transform: scale(0);
     }
 }
+
+.tracker {
+    --progress: 0%; 
+    background-color: rgb(19, 145, 122);
+    border-radius: 5px;
+    margin: 0px auto;
+    margin-top: 10px;
+    height: 30px;
+    width: 200px;
+    display: flex;
+    justify-content: flex-start;
+}
+.tracker .innerTracker{
+    background-color: rgb(18, 75, 65);
+    border-radius: 5px;
+    height: 100%;
+    width: var(--progress); 
+    transition: width 3s ease;
+}
+@property --progress {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0%;
+}
