@@ -88,8 +88,10 @@ div {
 
 .tracker {
     --progress: 0%; 
-    background-color: rgb(19, 145, 122);
+    --timer:0s;
+    background-color: rgb(14, 99, 83);
     border-radius: 5px;
+    border: 2px solid rgb(15, 74, 108);
     margin: 0px auto;
     margin-top: 10px;
     height: 30px;
@@ -98,14 +100,19 @@ div {
     justify-content: flex-start;
 }
 .tracker .innerTracker{
-    background-color: rgb(18, 75, 65);
-    border-radius: 5px;
+    background-color: rgb(22, 122, 103);
+    border-radius: 8px;
     height: 100%;
     width: var(--progress); 
-    transition: width 3s ease;
+    transition: width 10s ease;
 }
 @property --progress {
     syntax: "<length>";
     inherits: false;
     initial-value: 0%;
+}
+@property --timer{
+    syntax: "<time>";
+    inherits: false;
+    initial-value: 0s;
 }
