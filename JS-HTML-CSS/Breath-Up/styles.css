@@ -12,7 +12,7 @@ body{
     text-align: center;
 }
 
-div {
+.itemList {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap; 
@@ -115,4 +115,9 @@ div {
     syntax: "<time>";
     inherits: false;
     initial-value: 0s;      
+}
+
+.information{
+    text-align: justify;
+    font-size: small;
 }

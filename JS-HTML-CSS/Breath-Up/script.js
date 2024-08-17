@@ -1,6 +1,7 @@
 let text = document.getElementById("catInformation");
 let selectedContainer = starting;
 let btnStart = document.getElementById("startButton");
+btnStart.addEventListener("click",startCycle);
 let circle = document.getElementById("circle")
 let progress = document.querySelector(".tracker");
 let iteration = 1;
@@ -117,5 +118,3 @@ function updateTracker(iteration,numberOfIteration){
     let width = (iteration/numberOfIteration)*100
     progress.style.setProperty("--progress", `${width}%`)
 }
-
-btnStart.addEventListener("click",startCycle);
