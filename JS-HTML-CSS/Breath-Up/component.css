@@ -1,25 +1,16 @@
-@charset "utf-8";
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
-body{
-    background-color: rgb(23, 23, 75);
-    font-family: "Comfortaa";
+@property --progress {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0%;
 }
-.selection{
-    color: rgb(15, 214, 214);
-    text-shadow: 1px 1px 3px rgb(19, 131, 131);
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+@property --timer{
+    syntax: "<time>";
+    inherits: false;
+    initial-value: 0s;      
 }
 
-.itemList {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap; 
-    justify-content: center; 
-    gap: 10px;
-}
 
+/* TEXT SLIDE LIST */
 .text-slide{
     margin-right: 20px;
     padding: 10px;
@@ -31,21 +22,8 @@ body{
 .text-slide:hover{
     border: 1px solid yellow;
 }
-@keyframes smoothColorChange {
-    from {
-        background-color: rgb(3, 30, 88);
-    }
-    to {
-        background-color: rgb(62, 16, 189);
-    }
-}
 
-#catInformation{
-    padding-top: 10px;
-}
-#secondTitle{
-    padding-bottom: 10px;
-}
+/* BUTTON */
 #startButton {
     height: 30px;
     width: 70px;
@@ -53,6 +31,8 @@ body{
     margin: 20px auto;
     display: block;
 }
+
+/* CIRCLE CSS */
 #outerCircle{
     border-radius: 100px;
     width: 200px;
@@ -69,23 +49,7 @@ body{
     margin: 0 auto;
     transform: scale(0);
 }
-@keyframes circleInhale {
-    from {
-        transform: scale(0);
-    }
-    to {
-        transform: scale(1);
-    }
-}
-@keyframes circleExhale {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(0);
-    }
-}
-
+/* TRACKER OF CYCLE */
 .tracker {
     --progress: 0%; 
     --timer:0s;
@@ -106,18 +70,19 @@ body{
     width: var(--progress); 
     transition: width 10s ease;
 }
-@property --progress {
-    syntax: "<length>";
-    inherits: false;
-    initial-value: 0%;
-}
-@property --timer{
-    syntax: "<time>";
-    inherits: false;
-    initial-value: 0s;      
-}
 
+/* TEXT INFORMATION  */
 .information{
     text-align: justify;
     font-size: small;
+}
+.information .information-txt-line{
+    margin: 1rem;
+    flex-grow: 1;
+    align-self: center;
+    border: 1px solid black;
+  }
+
+.information #blankTxt{
+    flex-direction: row;
 }

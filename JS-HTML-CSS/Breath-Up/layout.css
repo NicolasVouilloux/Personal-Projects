@@ -1,0 +1,15 @@
+.selectionList {
+    color: rgb(15, 214, 214);
+    text-shadow: 1px 1px 3px rgb(19, 131, 131);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.itemList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}

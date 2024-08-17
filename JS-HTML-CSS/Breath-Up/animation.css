@@ -1,0 +1,24 @@
+@keyframes circleInhale {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+@keyframes circleExhale {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0);
+    }
+}
+@keyframes smoothColorChange {
+    from {
+        background-color: rgb(3, 30, 88);
+    }
+    to {
+        background-color: rgb(62, 16, 189);
+    }
+}
