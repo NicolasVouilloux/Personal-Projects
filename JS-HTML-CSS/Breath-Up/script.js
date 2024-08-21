@@ -1,9 +1,9 @@
-let text = document.getElementById("catInformation");
+let text = document.getElementById("informationAboutCycle");
 let selectedContainer = starting;
 let btnStart = document.getElementById("startButton");
 btnStart.addEventListener("click",startCycle);
 let circle = document.getElementById("circle")
-let progress = document.querySelector(".tracker");
+let progress = document.getElementById("tracker");
 let iteration = 1;
 
 const exercices={
