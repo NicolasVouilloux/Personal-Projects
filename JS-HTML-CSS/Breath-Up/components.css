@@ -21,14 +21,28 @@
 .text-slide:hover{
     border: 1px solid yellow;
 }
-
+.content #buttonLine{
+    margin: 1rem;
+    flex-grow: 1;
+    align-self: center;
+    border: 1px solid rgb(15, 91, 94);
+}
 /* BUTTON */
 .content #startButton {
+    font-size: 17px;
     height: 30px;
     width: 70px;
     text-align: center;
     margin: 20px auto;
     display: block;
+    color: rgb(12, 197, 197);
+    background-color:rgb(3, 30, 88) ;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+.content #startButton:hover{
+    border: 1px solid yellow;
 }
 
 /* CIRCLE CSS */
@@ -39,6 +53,8 @@
     background-color: rgb(17, 40, 100);
     margin: 0 auto;
     margin-top: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    
 }
 .animation #outerCircle #circle {
     border-radius: 100px;
@@ -47,6 +63,8 @@
     background-color: rgb(27, 59, 148);
     margin: 0 auto;
     transform: scale(0);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    
 }
 /* TRACKER OF CYCLE */
 .animation #tracker {
@@ -61,6 +79,8 @@
     width: 200px;
     display: flex;
     justify-content: flex-start;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    
 }
 .animation #tracker #innerTracker{
     background-color: rgb(22, 122, 103);
@@ -68,16 +88,31 @@
     height: 100%;
     width: var(--progress); 
     transition: width 10s ease;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    
 }
 
 /* TEXT INFORMATION  */
 .information{
+    color: rgb(12, 197, 197);
+    text-shadow: 1px 1px 3px rgb(19, 131, 131);
+    padding-top:30px ;
     text-align: justify;
     font-size: small;
 }
-.information .information-txt-line{
+.information-txt-line{
     margin: 1rem;
     flex-grow: 1;
     align-self: center;
-    border: 1px solid black;
-  }
+    border: 1px solid rgb(15, 91, 94);
+}
+#titleInformation{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+}
+#contentInformation{
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
