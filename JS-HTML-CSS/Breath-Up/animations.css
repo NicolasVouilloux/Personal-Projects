@@ -22,3 +22,13 @@
         background-color: rgb(62, 16, 189);
     }
 }
+@keyframes wait {}
+
+@keyframes progressBar {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}

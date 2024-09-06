@@ -75,7 +75,7 @@ function startCycle(){
     if (text.textContent != ""){
         let selectedExercice = exercices[selectedContainer]
         const {inhaleSec, exhaleSec,wait}= selectedExercice 
-        let timeOfIteration = (inhaleSec+exhaleSec)
+        let timeOfIteration = (inhaleSec+exhaleSec+wait)
         let numberOfIteration = (((5*60)/timeOfIteration)+1);
 
         startInhaleAnimation(inhaleSec);
@@ -97,7 +97,6 @@ function testIteration(numberOfIteration,inhaleSec,exhaleSec,event){
         if (animationName == 'circleInhale'){   
             startExhaleAnimation(exhaleSec);
             iteration++
-            updateTracker(iteration,numberOfIteration)
         }
         else if (animationName == 'circleExhale'){
             startInhaleAnimation(inhaleSec);
@@ -113,8 +112,12 @@ function startExhaleAnimation(exSec){
     circle.style.animation="none";
     circle.style.animation=`circleExhale ${exSec}s forwards`;
 }
-
-function updateTracker(iteration,numberOfIteration){
-    let width = (iteration/numberOfIteration)*100
-    progress.style.setProperty("--progress", `${width}%`)
+function startPauseAnimation(waitSec){
+    circle.style.animation="none";
+    circle.style.animation=`wait ${waitSec}s forwards`;
 }
+function startProgressAnimation(){
+    progress.style.animation="none";
+    progress.style.animation=`progressBar ${5*60}s forwards`
+}
+
