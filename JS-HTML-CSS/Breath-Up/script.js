@@ -3,7 +3,7 @@ let selectedContainer = starting;
 let btnStart = document.getElementById("startButton");
 btnStart.addEventListener("click",startCycle);
 let circle = document.getElementById("circle")
-let progress = document.getElementById("tracker");
+let progress = document.getElementById("innerTracker");
 let iteration = 1;
 
 const exercices={
@@ -73,6 +73,7 @@ function changeText(){
 
 function startCycle(){
     if (text.textContent != ""){
+        startProgressAnimation();
         let selectedExercice = exercices[selectedContainer]
         const {inhaleSec, exhaleSec,wait}= selectedExercice 
         let timeOfIteration = (inhaleSec+exhaleSec+wait)
