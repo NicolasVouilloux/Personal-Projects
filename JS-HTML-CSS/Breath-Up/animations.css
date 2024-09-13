@@ -22,7 +22,15 @@
         background-color: rgb(62, 16, 189);
     }
 }
-@keyframes wait {}
+@keyframes wait {
+    from{
+
+    }
+    to{
+        
+    }
+
+}
 
 @keyframes progressBar {
     from {

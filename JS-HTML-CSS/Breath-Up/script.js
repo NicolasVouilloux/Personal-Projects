@@ -73,26 +73,26 @@ function changeText(){
 
 function startCycle(){
     if (text.textContent != ""){
-        startProgressAnimation();
+        startProgressAnimation()
         let selectedExercice = exercices[selectedContainer]
         const {inhaleSec, exhaleSec,wait}= selectedExercice 
         let timeOfIteration = (inhaleSec+exhaleSec+wait)
         let numberOfIteration = (((5*60)/timeOfIteration)+1);
 
-        startInhaleAnimation(inhaleSec);
-        updateTracker(iteration,numberOfIteration)
+        startInhaleAnimation(inhaleSec)
         circle.addEventListener('animationend',(event)=>{
             testIteration(
                 numberOfIteration,
                 inhaleSec,
                 exhaleSec,
+                wait,
                 event
             );
         })    
     }
 }
 
-function testIteration(numberOfIteration,inhaleSec,exhaleSec,event){
+function testIteration(numberOfIteration,inhaleSec,exhaleSec,waitSec,event){
     if (iteration < numberOfIteration){
         let animationName = event.animationName;
         if (animationName == 'circleInhale'){   
@@ -100,25 +100,28 @@ function testIteration(numberOfIteration,inhaleSec,exhaleSec,event){
             iteration++
         }
         else if (animationName == 'circleExhale'){
+            startPauseAnimation(waitSec);
+        }
+        else if (animationName == 'wait'){
             startInhaleAnimation(inhaleSec);
         }
     }
 }
 
 function startInhaleAnimation(inSec){
-    circle.style.animation="none";
+    circle.style.animation="none !important";
     circle.style.animation=`circleInhale ${inSec}s forwards`;
 }
 function startExhaleAnimation(exSec){
-    circle.style.animation="none";
+    circle.style.animation="none !important";
     circle.style.animation=`circleExhale ${exSec}s forwards`;
 }
 function startPauseAnimation(waitSec){
-    circle.style.animation="none";
+    circle.style.animation="none !important";
     circle.style.animation=`wait ${waitSec}s forwards`;
 }
 function startProgressAnimation(){
-    progress.style.animation="none";
+    progress.style.animation="none !important";
     progress.style.animation=`progressBar ${5*60}s forwards`
 }
 
