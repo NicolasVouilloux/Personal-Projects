@@ -27,11 +27,6 @@ const exercices={
         exhaleSec :6,
         wait:10,
     },
-    custom :{
-        inhaleSec :5,
-        exhaleSec :5,
-        wait:0,
-    },
 }
 let containerList = Object.keys(exercices)
     
@@ -72,6 +67,10 @@ function changeText(){
 
 
 function startCycle(){
+    progress.style.animation = "none";
+    circle.style.animation = "none";
+    circle.offsetWidth;
+    progress.offsetWidth;
     if (text.textContent != ""){
         startProgressAnimation()
         let selectedExercice = exercices[selectedContainer]

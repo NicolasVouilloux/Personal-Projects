@@ -58,7 +58,7 @@
 /* TRACKER OF CYCLE */
 .animation #tracker {
     background-color: rgb(14, 99, 83);
-    border-radius: 5px;
+    border-radius: 7px;
     border: 2px solid rgb(15, 74, 108);
     margin: 0px auto;
     margin-top: 10px;
@@ -70,10 +70,11 @@
     
 }
 .animation #tracker #innerTracker{
-    background-color: rgb(22, 122, 103);
-    border-radius: 8px;
-    height: 100%;
-    width: 0%; 
+    background-color: rgb(11, 191, 158);
+    border-radius: 20px;
+    height: 90%;
+    margin: 1px 1px;
+    width: 100%; 
     transition: width 10s ease;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     
